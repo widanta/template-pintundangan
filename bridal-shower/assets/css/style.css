@@ -1,0 +1,340 @@
+html,
+body {
+    overflow-x: hidden;
+}
+*,
+p,
+h1,
+h2,
+h3 {
+    font-family: poppins, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+#header {
+    background-color: #fff5e9;
+    position: relative;
+    z-index: 2;
+    border-radius: 0px 0px 50px 50px;
+}
+.ornament-air {
+    top: -64px;
+    left: -186px;
+    width: 500px;
+    position: absolute;
+    filter: blur(2px);
+    z-index: -1;
+}
+.ornament-bunga-pojok {
+    top: -5px;
+    right: -5px;
+    width: 500px;
+    position: absolute;
+    z-index: -1;
+}
+.ornament-tengah {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.header-cover .header-sub-heading,
+.opening-top .sub-heading,
+.detail-event-top .sub-heading {
+    font-size: 28px;
+    font-weight: 500;
+    color: #c39aab;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.header-cover h2 {
+    font-size: 128px;
+    font-family: "Allura", cursive;
+    color: #493f78;
+}
+.header-cover h3 {
+    font-size: 32px;
+    font-family: "Inter", sans-serif;
+    color: #493f78;
+    text-transform: uppercase;
+    margin: -32px 0px 16px;
+}
+.person-name {
+    font-family: "Inter", sans-serif;
+    color: #493f78;
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+.header-info p,
+.opening-container .caption,
+.detail-event-container .caption {
+    color: #493f78;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+.guest,
+.event {
+    font-family: "Inter", sans-serif;
+    color: #493f78;
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 24px;
+}
+
+#opening {
+    position: relative;
+    z-index: 1;
+    background-color: #ceccd9;
+    margin-top: -60px;
+}
+
+#opening .opening-container {
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
+.opening-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 42px 0;
+}
+
+.opening-body .person-image {
+    position: relative;
+    width: 250px;
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 100%;
+    border: 2px solid #493f78;
+    outline: 2px solid #c39aab;
+    outline-offset: 2px;
+}
+
+.opening-body .ornament-kiri {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(calc(-50% - 150px), 0) rotate(-8deg);
+    z-index: 1;
+    pointer-events: none;
+    width: 300px;
+}
+.opening-body .ornament-kanan {
+    position: absolute;
+    bottom: -20px;
+    right: 50%;
+    transform: translate(calc(50% + 100px), -50%);
+    z-index: 1;
+    pointer-events: none;
+    width: 180px;
+}
+
+#detail-event {
+    background-color: #fff5e9;
+    position: relative;
+    z-index: 2;
+    border-radius: 50px;
+    margin-top: -60px;
+}
+
+.detail-event-container {
+    margin: 50px 0px;
+}
+
+.ornament-pojok-kiri {
+    position: absolute;
+    top: -180px;
+    left: -60px;
+    transform: rotate(50deg);
+    z-index: -1;
+    pointer-events: none;
+    width: 350px;
+}
+
+.ornament-pojok-kanan {
+    position: absolute;
+    bottom: -180px;
+    right: -60px;
+    transform: rotate(200deg);
+    z-index: -1;
+    pointer-events: none;
+    width: 350px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0c7c9;
+    border-radius: 15px;
+    padding: 8px 24px;
+    margin: 24px 0px;
+}
+.countdown div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.countdown .day,
+.countdown .hour,
+.countdown .minutes,
+.countdown .seconds {
+    font-size: 42px;
+    font-weight: 500;
+    color: #fff5e9;
+}
+
+.countdown .label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff5e9;
+}
+
+.btn-map {
+    background-color: #c39aab;
+    color: #ffffff;
+    padding: 8px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 16px;
+}
+
+/* responsive screen */
+@media (max-width: 1024px) {
+    .ornament-air,
+    .ornament-bunga-pojok,
+    .ornament-tengah {
+        width: 400px;
+    }
+    .header-cover h2 {
+        font-size: 82px;
+    }
+    #opening .opening-container {
+        margin-top: 150px;
+    }
+}
+@media (max-width: 768px) {
+    .ornament-air {
+        width: 280px;
+        top: -40px;
+        left: -130px;
+    }
+    .ornament-bunga-pojok {
+        width: 230px;
+    }
+    .ornament-tengah {
+        width: 280px;
+    }
+
+    .header-cover .header-sub-heading {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .header-cover h2 {
+        font-size: 70px;
+    }
+
+    .header-cover h3 {
+        font-size: 24px;
+        margin: -16px 0px 8px;
+    }
+    .person-name {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    .guest {
+        font-size: 32px;
+        margin-bottom: 16px;
+    }
+
+    .ornament-pojok-kiri {
+        position: absolute;
+        top: -120px;
+        left: -30px;
+        transform: rotate(50deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 230px;
+    }
+
+    .ornament-pojok-kanan {
+        position: absolute;
+        bottom: -120px;
+        right: -30px;
+        transform: rotate(200deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 230px;
+    }
+}
+
+@media (max-width: 425px) {
+    .ornament-air {
+        width: 200px;
+        top: -40px;
+        left: -80px;
+    }
+    .ornament-bunga-pojok {
+        width: 200px;
+    }
+
+    .opening-body .person-image {
+        width: 200px;
+    }
+
+    .opening-body .ornament-kiri {
+        bottom: 40px;
+        left: 50%;
+        transform: translate(calc(-50% - 100px), 0) rotate(-8deg);
+        width: 200px;
+    }
+    .opening-body .ornament-kanan {
+        bottom: 20px;
+        right: 50%;
+        transform: translate(calc(50% + 80px), -50%);
+        width: 140px;
+    }
+
+    .ornament-pojok-kiri {
+        position: absolute;
+        top: -90px;
+        left: -20px;
+        transform: rotate(50deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 160px;
+    }
+
+    .ornament-pojok-kanan {
+        position: absolute;
+        bottom: -120px;
+        right: -30px;
+        transform: rotate(200deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 230px;
+    }
+}
+
+@media (max-width: 375px) {
+    .ornament-air,
+    .ornament-bunga-pojok {
+        width: 180px;
+    }
+}
