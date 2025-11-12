@@ -224,10 +224,11 @@ h3 {
 
 #gift .gift-container {
     margin-top: 100px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }
 
-.gift-top h2 {
+.gift-top h2,
+.rsvp-top h2 {
     font-family: "Inter", sans-serif;
     color: #493f78;
     font-size: 42px;
@@ -265,6 +266,20 @@ h3 {
     color: #493f78;
     margin-bottom: 4px;
 }
+
+#rsvp {
+    background-color: #fff5e9;
+    position: relative;
+    z-index: 2;
+    border-radius: 50px;
+    margin-top: -60px;
+}
+
+.rsvp-container {
+    margin: 50px 0px;
+}
+
+
 
 /* responsive screen */
 @media (max-width: 1024px) {
