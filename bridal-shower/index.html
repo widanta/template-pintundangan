@@ -141,7 +141,7 @@
             </div>
         </section>
         <section id="rsvp">
-            <img src="assets/images/ornament-pojok.png" alt="" class="ornament-pojok-kiri" />
+            <img src="assets/images/ornament-air.png" alt="" class="ornament-pojok-kiri-air" />
             <div class="container">
                 <div class="row d-flex justify-content-center align-items-center">
                     <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 rsvp-container">
@@ -150,32 +150,162 @@
                         </div>
                         <div class="rsvp-body d-flex justify-content-center">
                             <div class="col-xl-8 col-lg-10 col-md-8 col-sm-12 col-12">
-                                <div class="rsvp-box"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <img src="assets/images/ornament-bunga-tengah.png" class="ornament-tengah" alt="" />
-        </section>
-        <section id="gift">
-            <div class="container">
-                <div class="row d-flex justify-content-center align-items-center">
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 gift-container">
-                        <div class="gift-top text-center">
-                            <h2>SHARE LOVE</h2>
-                            <p class="caption">Your presence is the only gift we require. However, if you wish to honor the bride with a gift, a contribution towards their future home is greatly appreciated.</p>
-                        </div>
-                        <div class="gift-body d-flex justify-content-center">
-                            <div class="col-xl-8 col-lg-10 col-md-8 col-sm-12 col-12">
-                                <div class="gift-card d-flex justify-content-center">
-                                    <div class="col-3">
-                                        <img src="assets/images/bpd-logo.png" class="img-fluid rouded-circle" alt="" />
-                                    </div>
-                                    <div class="col-9">
-                                        <p class="bank-name">BANK BPD Bali</p>
-                                        <p class="account-number">123 456 7890</p>
-                                        <p class="account-holder">Lindsey Dawn</p>
+                                <div class="rsvp-box">
+                                    <form
+                                        method="POST"
+                                        action="{{ $templateStatus == 'live' ? Route('wed.handler.rsvp.store') : Route('wed.demo.handler.rsvp.store', ['template_slug' => request()->route('template_slug'), 'religion' => request()->route('religion')]) }}"
+                                        id="rsvp-store"
+                                    >
+                                        <input type="hidden" name="WeddingID" value="{{ $weddingOrderId ? $weddingOrderId : 'bridal-shower' }}" />
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="floatingInput" placeholder="Nama" name="Name" base_error="Err_Name" />
+                                            <label for="floatingInput">Nama</label>
+                                            <div class="validate-error-place" id="Err_Name"></div>
+                                        </div>
+                                        <div class="form-floating mb-3">
+                                            <textarea class="form-control" placeholder="Ucapan" id="floatingTextarea2" name="Message" base_error="Err_Message"></textarea>
+                                            <label for="floatingTextarea2">Ucapan</label>
+                                            <div class="validate-error-place" id="Err_Message"></div>
+                                        </div>
+                                        <div class="row form-group">
+                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">
+                                                <label for="attendance-opt-1" class="label-radio">
+                                                    <input type="radio" id="attendance-opt-1" name="Attendance" value="Hadir" checked />
+                                                    <div class="info">
+                                                        <span>Hadir</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">
+                                                <label for="attendance-opt-2" class="label-radio">
+                                                    <input type="radio" id="attendance-opt-2" name="Attendance" value="Tidak Hadir" />
+                                                    <div class="info">
+                                                        <span>Tidak Hadir</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                                                <label for="attendance-opt-3" class="label-radio">
+                                                    <input type="radio" id="attendance-opt-3" name="Attendance" value="Masih Ragu" />
+                                                    <div class="info">
+                                                        <span>Masih Ragu</span>
+                                                    </div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end mb-3">
+                                            <button type="submit" class="btn btn-submit">Kirim Ucapan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="message-outer">
+                                    <div class="message-box">
+                                        <ul>
+                                            <!-- @foreach ($jsonRsvpData as $item) -->
+                                            <li>
+                                                <div class="content position-relative">
+                                                    <label class="attendance glob-description-baskervilleregular">-- Hadir</label>
+                                                    <h4 class="user-name glob-description-baskervilleregular">Surya Janaka</h4>
+                                                    <p class="saying glob-description-muktaregular">Selamat ya, semoga langgeng</p>
+                                                    <div class="general-info">
+                                                        <span class="date glob-description-muktaregular">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                                                                />
+                                                            </svg>
+                                                            21/08/2022
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content position-relative">
+                                                    <label class="attendance glob-description-baskervilleregular">-- Hadir</label>
+                                                    <h4 class="user-name glob-description-baskervilleregular">Jenifer</h4>
+                                                    <p class="saying glob-description-muktaregular">Selamat dawn</p>
+                                                    <div class="general-info">
+                                                        <span class="date glob-description-muktaregular">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                                                                />
+                                                            </svg>
+                                                            21/08/2022
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content position-relative">
+                                                    <label class="attendance glob-description-baskervilleregular">-- Hadir</label>
+                                                    <h4 class="user-name glob-description-baskervilleregular">Surya Janaka</h4>
+                                                    <p class="saying glob-description-muktaregular">Selamat ya, semoga langgeng</p>
+                                                    <div class="general-info">
+                                                        <span class="date glob-description-muktaregular">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                                                                />
+                                                            </svg>
+                                                            21/08/2022
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content position-relative">
+                                                    <label class="attendance glob-description-baskervilleregular">-- Hadir</label>
+                                                    <h4 class="user-name glob-description-baskervilleregular">Surya Janaka</h4>
+                                                    <p class="saying glob-description-muktaregular">Selamat ya, semoga langgeng</p>
+                                                    <div class="general-info">
+                                                        <span class="date glob-description-muktaregular">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                                                                />
+                                                            </svg>
+                                                            21/08/2022
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content position-relative">
+                                                    <label class="attendance glob-description-baskervilleregular">-- Hadir</label>
+                                                    <h4 class="user-name glob-description-baskervilleregular">Surya Janaka</h4>
+                                                    <p class="saying glob-description-muktaregular">Selamat ya, semoga langgeng</p>
+                                                    <div class="general-info">
+                                                        <span class="date glob-description-muktaregular">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                                                                />
+                                                            </svg>
+                                                            21/08/2022
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="content position-relative">
+                                                    <label class="attendance glob-description-baskervilleregular">-- Hadir</label>
+                                                    <h4 class="user-name glob-description-baskervilleregular">Surya Janaka</h4>
+                                                    <p class="saying glob-description-muktaregular">Selamat ya, semoga langgeng</p>
+                                                    <div class="general-info">
+                                                        <span class="date glob-description-muktaregular">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"
+                                                                />
+                                                            </svg>
+                                                            21/08/2022
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <!-- @endforeach -->
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -183,8 +313,32 @@
                     </div>
                 </div>
             </div>
+            <img src="assets/images/ornament-bunga-tengah.png" class="ornament-tengah" alt="" />
         </section>
-
+        <section id="closing">
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 closing-container">
+                        <div class="closing-top text-center">
+                            <p class="caption mb-4">We extend our deepest gratitude for your presence, support, and friendship as the bride and groom step into this beautiful new chapter.</p>
+                            <p class="caption">
+                                With Love and Deepest Gratitude <br />
+                                The Dawn Family
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class="container">
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-12 footer-container text-center">
+                        <p class="footer-text">Copyright © 2025 Pintundangan.com</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
 </html>
