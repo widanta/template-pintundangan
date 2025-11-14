@@ -68,6 +68,25 @@ $(window).on("load", function () {
         });
     });
 
+    // Audio mute unmute control
+    $(document).on("click", ".abs-fix-audio-control button", function () {
+        var is_volume_mute = $(this).attr("is-volume-mute");
+
+        if (is_volume_mute == "false") {
+            $(".abs-fix-audio-control button .volume-unmute").hide();
+            $(".abs-fix-audio-control button .volume-mute").show();
+            $(this).attr("is-volume-mute", "true");
+
+            $("#audio").prop("muted", true);
+        } else {
+            $(".abs-fix-audio-control button .volume-unmute").show();
+            $(".abs-fix-audio-control button .volume-mute").hide();
+            $(this).attr("is-volume-mute", "false");
+
+            $("#audio").prop("muted", false);
+        }
+    });
+
     // Countdown Function
     var dateTimeEvent = "Dec 28, 2025 09:00:00";
     // var dateTimeEvent = $("body").attr("prim_time_event");
