@@ -8,47 +8,64 @@ $(window).on("load", function () {
     $("#header").css({
         borderRadius: "0px",
     });
+
     $(document).on("click", "#btn-opening-cover", function () {
-        $("section, footer").fadeIn();
-        $("html, body").css({
-            overflowX: "hidden",
-            overflowY: "auto",
-            height: "auto",
-        });
-        $("#header").css({
-            borderRadius: "0px 0px 50px 50px",
-        });
-        $("html, body").animate(
-            {
-                scrollTop: $("section").offset().top,
-            },
-            350
-        );
+        $("section, footer").fadeIn(400, function () {
+            if ($("#header").css("border-radius") === "0px") {
+                $("html, body").css({
+                    overflowX: "hidden",
+                    overflowY: "auto",
+                    height: "auto",
+                });
 
-        var audio = document.getElementById("audio");
-        audio.play();
+                $("#header").css({ borderRadius: "0px 0px 50px 50px" });
+                if (typeof AOS !== "undefined") {
+                    setTimeout(function () {
+                        try {
+                            AOS.refresh();
+                            if (typeof AOS.refreshHard === "function") {
+                                AOS.refreshHard();
+                            }
+                            window.dispatchEvent(new Event("resize"));
+                        } catch (e) {
+                            try {
+                                AOS.init({ once: true });
+                            } catch (ee) {}
+                        }
+                    }, 300);
+                }
 
-        AOS.init({
-            once: true,
+                $("html, body").animate(
+                    {
+                        scrollTop: $("#opening").offset().top,
+                    },
+                    450
+                );
+
+                // play audio
+                var audio = document.getElementById("audio");
+                if (audio && typeof audio.play === "function") audio.play();
+
+                // init masonry after reveal (if needed)
+                if (window.matchMedia("(max-width: 767px)").matches) {
+                    var masonry = new MiniMasonry({
+                        container: document.querySelector(".masonry_wrapper"),
+                        surroundingGutter: false,
+                        ultimateGutter: 2,
+                        gutterX: 20,
+                        gutterY: 20,
+                        baseWidth: 150,
+                    });
+                } else {
+                    var masonry = new MiniMasonry({
+                        container: document.querySelector(".masonry_wrapper"),
+                        surroundingGutter: false,
+                        gutterX: 20,
+                        gutterY: 20,
+                    });
+                }
+            }
         });
-
-        if (window.matchMedia("(max-width: 767px)").matches) {
-            var masonry = new MiniMasonry({
-                container: document.querySelector(".masonry_wrapper"),
-                surroundingGutter: false,
-                ultimateGutter: 2,
-                gutterX: 20,
-                gutterY: 20,
-                baseWidth: 150,
-            });
-        } else {
-            var masonry = new MiniMasonry({
-                container: document.querySelector(".masonry_wrapper"),
-                surroundingGutter: false,
-                gutterX: 20,
-                gutterY: 20,
-            });
-        }
     });
 
     // Countdown Function
