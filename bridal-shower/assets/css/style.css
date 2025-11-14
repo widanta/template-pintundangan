@@ -268,8 +268,8 @@ h3 {
     justify-content: center;
 }
 
-.countdown .day,
-.countdown .hour,
+.countdown .days,
+.countdown .hours,
 .countdown .minutes,
 .countdown .seconds {
     font-size: 42px;
@@ -518,9 +518,36 @@ h3 {
 
 #footer {
     background-color: #fff5e9;
-    padding: 16px 0px;
+    padding: 16px 0px 100px 0px;
     color: #493f78;
     font-weight: 500;
+}
+
+.navigation-inner {
+    bottom: 24px;
+    z-index: 9;
+    width: 100%;
+}
+.navigation-inner .navigation-box nav {
+    background: #493f78;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px -3px #cccccc;
+    padding: 8px 16px;
+}
+.navigation-inner .navigation-box nav .nav-pills .nav-link {
+    margin: 0px 10px;
+    border-radius: 0;
+    padding: 8px;
+    background: none;
+    border-bottom: 2px solid #493f78;
+}
+
+.navigation-inner .navigation-box nav .nav-pills .nav-link .active {
+    border-bottom: 2px solid #e89b93;
+}
+
+.navigation-inner .navigation-box nav .nav-pills .nav-link img {
+    height: 30px;
 }
 
 /* responsive screen */

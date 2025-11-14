@@ -51,20 +51,12 @@ $(window).on("load", function () {
         }
     });
 
-    // Fancy Gallery
-    $(".fancy").fancybox({
-        transitionIn: "elastic",
-        transitionOut: "elastic",
-        speedIn: 600,
-        speedOut: 200,
-        overlayShow: false,
-    });
-
     // Countdown Function
-    var dateTimeEvent = $("body").attr("prim_time_event");
+    var dateTimeEvent = "Dec 28, 2025 09:00:00";
+    // var dateTimeEvent = $("body").attr("prim_time_event");
     var countDownDate = new Date(dateTimeEvent).getTime();
 
-    const clock = document.getElementById("clock-animated");
+    const clock = document.getElementById("countdown-animation");
     const daysSpan = clock.querySelector(".days");
     const hoursSpan = clock.querySelector(".hours");
     const minutesSpan = clock.querySelector(".minutes");
@@ -92,6 +84,15 @@ $(window).on("load", function () {
             secondsSpan.innerHTML = seconds;
         }
     }, 1000);
+
+    // Fancy Gallery
+    $(".fancy").fancybox({
+        transitionIn: "elastic",
+        transitionOut: "elastic",
+        speedIn: 600,
+        speedOut: 200,
+        overlayShow: false,
+    });
 
     // Form rsvp function
     $('form[id="rsvp-store"]').each(function () {
