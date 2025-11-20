@@ -82,43 +82,77 @@ h3 {
 }
 
 #header {
-    background-color: #fff5e9;
+    background-color: #fcfdff;
     position: relative;
     z-index: 2;
     border-radius: 0px 0px 50px 50px;
 }
 
 #btn-opening-cover {
-    border: 2px solid #493f78;
+    border: 2px solid #274d98;
     border-radius: 25px;
     padding: 4px 0px;
 }
 #btn-opening-cover svg {
-    color: #e89b93;
+    color: #6f89be;
 }
-.ornament-air {
-    top: -64px;
-    left: -186px;
-    width: 500px;
+.ornament-matahari-kiri {
+    top: 0;
+    left: 0;
+    width: 400px;
     position: absolute;
-    filter: blur(2px);
-    z-index: -1;
-}
-.ornament-bunga-pojok {
-    top: -5px;
-    right: -5px;
-    width: 500px;
-    position: absolute;
-    z-index: -1;
-}
-.ornament-tengah {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    z-index: 3;
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin: 50% 50%;
+    animation: spinLeft 12s linear infinite;
     pointer-events: none;
+    will-change: transform;
+    z-index: -5;
+}
+.ornament-matahari-kanan {
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    position: absolute;
+    transform: translateX(50%) rotate(0deg);
+    transform-origin: 50% 50%;
+    animation: spinRight 12s linear infinite;
+    pointer-events: none;
+    will-change: transform;
+    z-index: -5;
+}
+@keyframes spinLeft {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) rotate(360deg);
+    }
+}
+
+@keyframes spinRight {
+    from {
+        transform: translateX(50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(50%) rotate(-360deg);
+    }
+}
+
+.ornament-header-kanan {
+    top: 0;
+    right: 0;
+    width: 350px;
+    transform: rotate(180deg);
+    position: absolute;
+    z-index: -4;
+}
+.ornament-header-kiri {
+    bottom: 0;
+    left: 0;
+    width: 350px;
+    position: absolute;
+    z-index: -4;
+    border-radius: 0px 0px 0px 50px;
 }
 
 .header-cover .header-sub-heading,
@@ -126,25 +160,24 @@ h3 {
 .detail-event-top .sub-heading {
     font-size: 28px;
     font-weight: 500;
-    color: #c39aab;
+    color: #6f89be;
     text-transform: uppercase;
     margin-bottom: 16px;
 }
 .header-cover h2 {
-    font-size: 128px;
-    font-family: "Allura", cursive;
-    color: #493f78;
+    font-size: 42px;
+    font-weight: 600;
+    color: #274d98;
 }
 .header-cover h3 {
-    font-size: 32px;
-    font-family: "Inter", sans-serif;
-    color: #493f78;
-    text-transform: uppercase;
-    margin: -32px 0px 16px;
+    font-size: 16px;
+    font-family: "Poppins", sans-serif;
+    color: #274d98;
+    margin: 24px 0px 8px;
 }
 .person-name {
     font-family: "Inter", sans-serif;
-    color: #493f78;
+    color: #274d98;
     font-size: 42px;
     font-weight: bold;
     margin-bottom: 50px;
@@ -154,7 +187,7 @@ h3 {
 .detail-event-container .caption,
 .gift-container .caption,
 .closing-container .caption {
-    color: #493f78;
+    color: #274d98;
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 8px;
@@ -162,7 +195,7 @@ h3 {
 .guest,
 .event {
     font-family: "Inter", sans-serif;
-    color: #493f78;
+    color: #274d98;
     font-size: 42px;
     font-weight: bold;
     margin-bottom: 24px;
@@ -171,13 +204,30 @@ h3 {
 #opening {
     position: relative;
     z-index: 1;
-    background-color: #ceccd9;
+    background-color: #fcfdff;
     margin-top: -60px;
 }
 
 #opening .opening-container {
     margin-top: 200px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
+}
+
+.ornament-lentera-satu {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    z-index: -10;
+    pointer-events: none;
+    width: 60px;
+}
+.ornament-lentera-dua {
+    position: absolute;
+    top: -50px;
+    left: 100px;
+    z-index: -10;
+    pointer-events: none;
+    width: 60px;
 }
 
 .opening-body {
@@ -187,6 +237,7 @@ h3 {
     justify-content: center;
     box-sizing: border-box;
     padding: 42px 0;
+    margin: 32px 0px;
 }
 
 .opening-body .person-image {
@@ -195,67 +246,61 @@ h3 {
     z-index: 3;
     pointer-events: none;
     border-radius: 100%;
-    border: 2px solid #493f78;
-    outline: 2px solid #c39aab;
+    border: 2px solid #274d98;
+    outline: 2px solid #6f89be;
     outline-offset: 2px;
 }
 
-.opening-body .ornament-kiri {
+.opening-body .ornament-matahari-tengah {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(calc(-50% - 150px), 0) rotate(-8deg);
+    transform: translate(calc(-50% - 0px), 0);
     z-index: 1;
     pointer-events: none;
-    width: 300px;
-}
-.opening-body .ornament-kanan {
-    position: absolute;
-    bottom: -20px;
-    right: 50%;
-    transform: translate(calc(50% + 100px), -50%);
-    z-index: 1;
+    transform-origin: 50% 50%;
+    animation: spinLeft 12s linear infinite;
     pointer-events: none;
-    width: 180px;
+    will-change: transform;
+    width: 330px;
 }
 
 #detail-event {
-    background-color: #fff5e9;
+    background-color: #abbbda;
     position: relative;
     z-index: 2;
-    border-radius: 50px;
-    margin-top: -60px;
+    border-radius: 0px 0px 50px 50px;
+    background-image: url("../images/ornament-masjid.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center calc(100% + 10px);
 }
 
 .detail-event-container {
     margin: 50px 0px;
 }
 
-.ornament-pojok-kiri {
-    position: absolute;
-    top: -180px;
-    left: -60px;
-    transform: rotate(50deg);
-    z-index: -1;
-    pointer-events: none;
-    width: 350px;
+.ornament-kubah-atas-img {
+    width: 100%;
+    margin-bottom: -2px;
 }
 
-.ornament-pojok-kanan {
-    position: absolute;
-    bottom: -180px;
-    right: -60px;
-    transform: rotate(200deg);
-    z-index: -1;
-    pointer-events: none;
-    width: 350px;
+.ornament-kubah-bawah-img {
+    width: 100%;
+    margin-top: -2px;
+    position: relative;
+    z-index: 1;
+}
+
+#ornament-kubah {
+    background-color: #fcfdff;
 }
 
 .countdown {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #e0c7c9;
+    background-color: #6f89be;
     border-radius: 15px;
     padding: 8px 16px;
     margin: 24px 0px;
@@ -284,7 +329,7 @@ h3 {
 }
 
 .btn-map {
-    background-color: #c39aab;
+    background-color: #6f89be;
     color: #ffffff;
     padding: 8px 24px;
     border-radius: 10px;
@@ -297,7 +342,7 @@ h3 {
 #gift {
     position: relative;
     z-index: 1;
-    background-color: #ceccd9;
+    background-color: #fcfdff;
     margin-top: -60px;
 }
 
@@ -309,7 +354,7 @@ h3 {
 .gift-top h2,
 .rsvp-top h2 {
     font-family: "Inter", sans-serif;
-    color: #493f78;
+    color: #274d98;
     font-size: 42px;
     font-weight: bold;
     margin-bottom: 24px;
@@ -319,7 +364,7 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff5e9;
+    background-color: #6f89be;
     border-radius: 15px;
     padding: 12px 16px;
     margin: 24px 0px;
@@ -335,38 +380,28 @@ h3 {
 .gift-card .bank-name {
     font-size: 20px;
     font-weight: 600;
-    color: #493f78;
+    color: #fcfdff;
     margin-bottom: 8px;
 }
 
 .gift-card p {
     font-size: 16px;
     font-weight: 500;
-    color: #493f78;
+    color: #fcfdff;
     margin-bottom: 4px;
 }
 
 #rsvp {
-    background-color: #fff5e9;
+    background-color: #abbbda;
     position: relative;
     z-index: 2;
-    border-radius: 50px;
+    border-radius: 50px 50px 0px 0px;
     margin-top: -60px;
-}
-
-#rsvp .ornament-pojok-kiri-air {
-    position: absolute;
-    top: -150px;
-    left: -130px;
-    z-index: -1;
-    pointer-events: none;
-    width: 350px;
-    filter: blur(2px);
 }
 
 .rsvp-container {
     margin-top: 50px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .rsvp-box .form-floating textarea {
@@ -376,8 +411,7 @@ h3 {
 .rsvp-box .form-floating input[type="text"],
 .rsvp-box .form-floating textarea {
     border-radius: 10px;
-    border: 1px solid #493f78;
-    color: #493f78;
+    color: #274d98;
     outline: none;
     font-style: normal;
     font-weight: 300;
@@ -385,11 +419,11 @@ h3 {
     line-height: 25px;
     background: none;
     width: 100%;
-    background-color: #fff5e9;
+    background-color: #fcfdff;
 }
 
 .rsvp-box textarea:focus {
-    background-color: #fff5e9;
+    background-color: #fcfdff;
 }
 
 .rsvp-box .form-group label.label-radio {
@@ -404,7 +438,7 @@ h3 {
     opacity: 0;
 }
 .rsvp-box .form-group label.label-radio input[type="radio"]:checked + .info {
-    background: #e89b93;
+    background: #6f89be;
 }
 .rsvp-box .form-group label.label-radio .info {
     width: 100%;
@@ -413,7 +447,7 @@ h3 {
     padding: 8px;
     border-radius: 10px;
     background: none;
-    border: 1px solid #493f78;
+    border: 1px solid #6f89be;
     font-style: normal;
     font-size: 16px;
     line-height: 25px;
@@ -428,7 +462,7 @@ h3 {
 
 .rsvp-box .btn-submit {
     color: #fff5e9;
-    background-color: #493f78;
+    background-color: #274d98;
     padding: 8px 24px;
     border-radius: 10px;
     font-weight: 500;
@@ -437,9 +471,9 @@ h3 {
 }
 .rsvp-box .btn-submit:hover {
     background: transparent;
-    color: #493f78;
+    color: #274d98;
     transition: all 0.3s;
-    border: 1px solid #493f78;
+    border: 1px solid #274d98;
 }
 
 .rsvp-body .message-box {
@@ -474,31 +508,30 @@ h3 {
 }
 .rsvp-body .message-box ul li {
     list-style: none;
-    border: 1px solid #493f78;
     margin-bottom: 20px;
     border-radius: 10px;
     padding: 16px;
-    color: #493f78;
+    background-color: #fcfdff;
 }
 .rsvp-body .message-box ul li .user-name {
     font-size: 18px;
     padding-right: 80px;
-    color: #493f78;
+    color: #274d98;
     font-weight: 500;
 }
 .rsvp-body .message-box ul li .saying {
-    color: #493f78;
+    color: #274d98;
     font-size: 16px;
 }
 .rsvp-body .message-box ul li .general-info {
-    border-top: 1px solid #493f78;
+    border-top: 1px solid #274d98;
     padding-top: 5px;
 }
 .rsvp-body .message-box ul li .general-info .date {
     font-size: 14px;
     display: flex;
     padding-top: 7px;
-    color: #e89b93;
+    color: #6f89be;
 }
 .rsvp-body .message-box ul li .general-info .date svg {
     margin-right: 7px;
@@ -507,19 +540,18 @@ h3 {
 #closing {
     position: relative;
     z-index: 1;
-    background-color: #ceccd9;
-    margin-top: -60px;
+    background-color: #fcfdff;
 }
 
 #closing .closing-container {
-    margin-top: 200px;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
 #footer {
-    background-color: #fff5e9;
+    background-color: #abbbda;
     padding: 16px 0px 100px 0px;
-    color: #493f78;
+    color: #274d98;
     font-weight: 500;
 }
 
@@ -529,7 +561,7 @@ h3 {
     width: 100%;
 }
 .navigation-inner .navigation-box nav {
-    background: #493f78;
+    background: #274d98;
     border-radius: 30px;
     box-shadow: 1px 1px 10px -3px #cccccc;
     padding: 8px 16px;
@@ -539,11 +571,7 @@ h3 {
     border-radius: 0;
     padding: 8px;
     background: none;
-    border-bottom: 2px solid #493f78;
-}
-
-.navigation-inner .navigation-box nav .nav-pills .nav-link .active {
-    border-bottom: 2px solid #e89b93;
+    border-bottom: 2px solid #274d98;
 }
 
 .navigation-inner .navigation-box nav .nav-pills .nav-link img {
@@ -558,8 +586,8 @@ h3 {
     width: 50px;
     height: 50px;
     border: none;
-    background: #493f78;
-    box-shadow: 0 0.5px 5px #493f78;
+    background: #274d98;
+    box-shadow: 0 0.5px 5px #274d98;
 }
 .abs-fix-audio-control button svg {
     width: 30px;
@@ -577,30 +605,32 @@ h3 {
 
 /* responsive screen */
 @media (max-width: 1024px) {
-    .ornament-air,
-    .ornament-bunga-pojok,
-    .ornament-tengah {
-        width: 400px;
+    .ornament-matahari-kiri,
+    .ornament-header-kanan,
+    .ornament-matahari-kanan,
+    .ornament-header-kiri {
+        width: 300px;
     }
-    .header-cover h2 {
-        font-size: 82px;
-    }
-    #opening .opening-container,
-    #closing .closing-container {
+    #opening .opening-container {
         margin-top: 150px;
+    }
+    .ornament-kubah-atas {
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 161px;
     }
 }
 @media (max-width: 768px) {
-    .ornament-air {
-        width: 280px;
-        top: -40px;
-        left: -130px;
-    }
-    .ornament-bunga-pojok {
+    .ornament-matahari-kiri,
+    .ornament-header-kanan,
+    .ornament-matahari-kanan,
+    .ornament-header-kiri {
         width: 230px;
-    }
-    .ornament-tengah {
-        width: 280px;
     }
 
     .header-cover .header-sub-heading,
@@ -610,24 +640,32 @@ h3 {
         margin-bottom: 12px;
     }
 
-    .header-cover h2 {
-        font-size: 70px;
-    }
-
     .header-cover h3 {
         font-size: 24px;
-        margin: -16px 0px 8px;
     }
     .person-name {
         font-size: 32px;
         margin-bottom: 30px;
     }
+
+    .header-cover h2,
     .guest,
     .detail-event-top .event,
     .gift-top h2,
     .rsvp-top h2 {
         font-size: 32px;
         margin-bottom: 16px;
+    }
+
+    .ornament-kubah-atas {
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 121px;
     }
 
     .ornament-pojok-kiri {
@@ -658,12 +696,10 @@ h3 {
 }
 
 @media (max-width: 425px) {
-    .ornament-air {
-        width: 200px;
-        top: -40px;
-        left: -80px;
-    }
-    .ornament-bunga-pojok {
+    .ornament-matahari-kiri,
+    .ornament-header-kanan,
+    .ornament-matahari-kanan,
+    .ornament-header-kiri {
         width: 200px;
     }
 
@@ -671,17 +707,28 @@ h3 {
         width: 200px;
     }
 
-    .opening-body .ornament-kiri {
-        bottom: 40px;
-        left: 50%;
-        transform: translate(calc(-50% - 100px), 0) rotate(-8deg);
-        width: 200px;
+    .opening-body .ornament-matahari-tengah {
+        width: 280px;
     }
-    .opening-body .ornament-kanan {
-        bottom: 20px;
-        right: 50%;
-        transform: translate(calc(50% + 80px), -50%);
-        width: 140px;
+
+    .ornament-lentera-satu,
+    .ornament-lentera-dua {
+        width: 45px;
+    }
+
+    .header-cover .header-sub-heading,
+    .header-cover h3 {
+        font-size: 18px;
+    }
+    .ornament-kubah-atas {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 67px;
     }
 
     .ornament-pojok-kiri {
@@ -712,8 +759,33 @@ h3 {
 }
 
 @media (max-width: 375px) {
-    .ornament-air,
-    .ornament-bunga-pojok {
+    .ornament-matahari-kiri,
+    .ornament-header-kanan,
+    .ornament-matahari-kanan,
+    .ornament-header-kiri {
         width: 180px;
+    }
+
+    .ornament-kubah-atas {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 60px;
+    }
+}
+@media (max-width: 320px) {
+    .ornament-kubah-atas {
+        position: absolute;
+        top: -20px;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+        z-index: -1;
+        pointer-events: none;
+        width: 100%;
+        height: 50px;
     }
 }
