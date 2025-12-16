@@ -355,10 +355,6 @@ h3 {
     z-index: 1;
 }
 
-.parallax-image {
-    background-image: url("../images/horizontal-1.jpg");
-}
-
 .parallax-caption {
     z-index: 2;
 }

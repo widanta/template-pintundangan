@@ -21,6 +21,8 @@ $(window).on("load", function () {
     const namaTamu = getQueryParam("to");
     if (namaTamu) {
         $("#guest-name").text(namaTamu);
+    } else {
+        $("#guest-name").text("Widanta Nugraha");
     }
 
     $(document).on("click", "#btn-opening-cover", function () {
