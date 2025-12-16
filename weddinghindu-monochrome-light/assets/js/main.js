@@ -5,69 +5,88 @@ $(window).on("load", function () {
         overflowY: "hidden",
         height: "100vh",
     });
-    $("#header").css({
-        borderRadius: "0px",
+    $("#countdown-animation").css({
+        display: "none",
     });
-    $(".ornament-header-kiri").css({
-        borderRadius: "0px",
-    });
+
+    // fungsi untuk mendapatkan parameter query dari URL jika tidak perlu bisa di hapus
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        let value = urlParams.get(param);
+        if (value) {
+            return value.trim();
+        }
+        return null;
+    }
+    const namaTamu = getQueryParam("to");
+    if (namaTamu) {
+        $("#guest-name").text(namaTamu);
+    }
 
     $(document).on("click", "#btn-opening-cover", function () {
         $("section, footer").fadeIn(400, function () {
-            if ($("#header").css("border-radius") === "0px") {
-                $("html, body").css({
-                    overflowX: "hidden",
-                    overflowY: "auto",
-                    height: "auto",
-                });
+            $("html, body").css({
+                overflowX: "hidden",
+                overflowY: "auto",
+                height: "auto",
+            });
 
-                $("#header").css({ borderRadius: "0px 0px 50px 50px" });
-                $(".ornament-header-kiri").css({ borderRadius: "0px 0px 0px 50px" });
-                if (typeof AOS !== "undefined") {
-                    setTimeout(function () {
-                        try {
-                            AOS.refresh();
-                            if (typeof AOS.refreshHard === "function") {
-                                AOS.refreshHard();
-                            }
-                            window.dispatchEvent(new Event("resize"));
-                        } catch (e) {
-                            try {
-                                AOS.init({ once: true });
-                            } catch (ee) {}
+            $("#countdown-animation").css({
+                display: "flex",
+            });
+
+            $(".header-info").css({
+                display: "none",
+            });
+
+            $("#btn-opening-cover").css({
+                display: "none",
+            });
+
+            if (typeof AOS !== "undefined") {
+                setTimeout(function () {
+                    try {
+                        AOS.refresh();
+                        if (typeof AOS.refreshHard === "function") {
+                            AOS.refreshHard();
                         }
-                    }, 300);
-                }
+                        window.dispatchEvent(new Event("resize"));
+                    } catch (e) {
+                        try {
+                            AOS.init({ once: true });
+                        } catch (ee) {}
+                    }
+                }, 300);
+            }
 
-                $("html, body").animate(
-                    {
-                        scrollTop: $("#opening").offset().top,
-                    },
-                    450
-                );
+            // $("html, body").animate(
+            //     {
+            //         scrollTop: $("#opening").offset().top,
+            //     },
+            //     450
+            // );
 
-                // play audio
-                var audio = document.getElementById("audio");
-                if (audio && typeof audio.play === "function") audio.play();
+            // play audio
+            var audio = document.getElementById("audio");
+            if (audio && typeof audio.play === "function") audio.play();
 
-                // init masonry after reveal (if needed)
-                if (window.matchMedia("(max-width: 767px)").matches) {
-                    var masonry = new MiniMasonry({
-                        container: document.querySelector(".masonry_wrapper"),
-                        surroundingGutter: false,
-                        ultimateGutter: 2,
-                        gutterX: 20,
-                        gutterY: 20,
-                        baseWidth: 150,
-                    });
-                } else {
-                    var masonry = new MiniMasonry({
-                        container: document.querySelector(".masonry_wrapper"),
-                        surroundingGutter: false,
-                        gutterX: 20,
-                        gutterY: 20,
-                    });
-                }
+            // init masonry after reveal (if needed)
+            if (window.matchMedia("(max-width: 767px)").matches) {
+                var masonry = new MiniMasonry({
+                    container: document.querySelector(".masonry_wrapper"),
+                    surroundingGutter: false,
+                    ultimateGutter: 2,
+                    gutterX: 20,
+                    gutterY: 20,
+                    baseWidth: 150,
+                });
+            } else {
+                var masonry = new MiniMasonry({
+                    container: document.querySelector(".masonry_wrapper"),
+                    surroundingGutter: false,
+                    gutterX: 20,
+                    gutterY: 20,
+                });
             }
         });
     });

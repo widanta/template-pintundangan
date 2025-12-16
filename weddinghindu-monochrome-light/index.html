@@ -8,10 +8,13 @@
         <link rel="stylesheet" href="assets/vendors/fancybox/dist/jquery.fancybox.css">
         <link rel="stylesheet" href="assets/css/style.css" />
 
-        <title>Pintundangan | Khitanan - Tosca</title>
+        <title>Pintundangan | Hindu Monochrome Light</title>
     </head>
     <body>
-        
+        <div class="loader">
+            <div class="one"></div>
+            <div class="two"></div>
+        </div>
         <header id="header">
             <div id="caraousel-container" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
                 <div class="carousel-inner">
@@ -36,7 +39,7 @@
                                 </div>
                                 <div class="header-info text-center">
                                     <p class="header-to">Undangan Khusus ke</p>
-                                    <h2 class="guest">Widanta Nugraha</h2>
+                                    <h2 class="guest" id="guest-name"></h2>
                                     <p class="header-details">Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/ Saudara/i untuk hadir di acara pernikahan kami.</p>
                                 </div>
                                 <div class="header-info-countdown d-flex justify-content-center">
@@ -661,6 +664,8 @@
         <script src="assets/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/vendors/jquery/jquery-3.6.0.js"></script>
         <script src="assets/vendors/fancybox/dist/jquery.fancybox.js"></script>
+        <script src="assets/vendors/aos/dist/aos.js"></script>
+        <script src="assets/js/main.js"></script>
 
         <script>
             AOS.init();
