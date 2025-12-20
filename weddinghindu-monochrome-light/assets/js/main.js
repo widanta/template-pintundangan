@@ -113,7 +113,7 @@ $(window).on("load", function () {
     });
 
     // Countdown Function
-    var dateTimeEvent = "Dec 28, 2025 09:00:00";
+    var dateTimeEvent = "Dec 28, 2030 09:00:00";
     // var dateTimeEvent = $("body").attr("prim_time_event");
     var countDownDate = new Date(dateTimeEvent).getTime();
 
