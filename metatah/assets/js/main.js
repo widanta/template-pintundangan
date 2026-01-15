@@ -5,9 +5,6 @@ $(window).on("load", function () {
         overflowY: "hidden",
         height: "100vh",
     });
-    $("#countdown-animation").css({
-        display: "none",
-    });
 
     // fungsi untuk mendapatkan parameter query dari URL jika tidak perlu bisa di hapus
     function getQueryParam(param) {
@@ -33,14 +30,6 @@ $(window).on("load", function () {
                 height: "auto",
             });
 
-            $("#countdown-animation").css({
-                display: "flex",
-            });
-
-            $(".header-info").css({
-                display: "none",
-            });
-
             $("#btn-opening-cover").css({
                 display: "none",
             });
@@ -61,12 +50,14 @@ $(window).on("load", function () {
                 }, 300);
             }
 
-            // $("html, body").animate(
-            //     {
-            //         scrollTop: $("#opening").offset().top,
-            //     },
-            //     450
-            // );
+            $("html, body")
+                .stop()
+                .animate(
+                    {
+                        scrollTop: $("#opening").offset().top,
+                    },
+                    100
+                );
 
             // play audio
             var audio = document.getElementById("audio");
